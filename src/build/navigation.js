@@ -56,7 +56,7 @@ function generateHTML(files) {
         if (file.type == "directory") {
             if (file.index) {
                 result += `
-                    <span class="link" hx-get="/${file.path}/index.html" hx-swap="innerHTML" hx-target="#main" hx-trigger="click">
+                    <span class="link" hx-get="./${file.path}/index.html" hx-swap="innerHTML" hx-target="#main" hx-trigger="click">
                         ${capitalize(file.name)}
                     <span>`
             }
