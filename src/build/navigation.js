@@ -72,7 +72,7 @@ function generateHTML(files) {
                 name += capitalize(word) + " ";
             }
 
-            result += `<span class="link" hx-get="/${file.path.slice(0, -2)}html" hx-swap="innerHTML" hx-target="#main" hx-trigger="click">${name}</span>`
+            result += `<span class="link" hx-get="./${file.path.slice(0, -2)}html" hx-swap="innerHTML" hx-target="#main" hx-trigger="click">${name}</span>`
         }
 
         result += `</li>`;
