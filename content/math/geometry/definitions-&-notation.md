@@ -54,7 +54,7 @@
     has an edge $CA$ and point $B$ inside. Points $A$, $B$, $C$ are **vertices**
     of triangle ABC; segments $\overline{AB}$, $\overline{BC}$, $\overline{CA}$
     are **sides** of that triangle; angles $\sphericalangle ABC$,
-    $\sphericalangle BCA$, $\sphericalangle CAB$ are **angles** of triangle.
+    $\sphericalangle BCA$ $\sphericalangle CAB$ are **angles** of triangle.
     Triangle $ABC$ will be denoted with $\triangle ABC$.
 19. Triangles $\triangle ABC$ and $\triangle A'B'C'$ are **congruent** if they
     have all sides of equal length, and their corresponding angles of equal measure.
