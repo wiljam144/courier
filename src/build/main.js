@@ -92,7 +92,7 @@ function compileMarkdownFile(path) {
         }
 
         href = href.slice(0, -2) + "html";
-        return `<span class="link" hx-get="${href}" hx-target="#main" hx-swap="innerHTML">${text}</span>`;
+        return `<span class="link" hx-get=".${href}" hx-target="#main" hx-swap="innerHTML">${text}</span>`;
     })
 
     const sansRegex = /\^(.*?)\^/g;
