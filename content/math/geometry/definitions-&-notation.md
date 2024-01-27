@@ -3,8 +3,8 @@
 1. **Points** are denoted by big letters, **lines** are denoted by small letters.
 2. Sentences: *Point $J$ is on line $k$* and *line $k$ passes through point $J$*,
    are equal in meaning. Symbolically they are denoted by $J \in k$.
-3. The only line passing through point $A \neq B$ is denoted by $AB$ or $l_{AB}$.
-   $h_{AB}$ denotes a **ray** starting in $A$ that passes through $B$.
+3. The only line passing through point $A \neq B$ is denoted by $AB$
+   or $l_{AB}$. $h_{AB}$ denotes a **ray** starting in $A$ that passes through $B$.
 4. **Segment** with ends $A$, $B$ is denoted by $\overline{AB}$. The length of
    segment $\overline{AB}$ is denoted by $|AB|$. The center of segment $\overline{AB}$
    is a point $M \in \overline{AB}$ such that $|AM| = |BM|$.
@@ -22,19 +22,19 @@
    and their common start is the **vertex** of an angle. The area of a plane
    that is mentioned earlier is an **inside**. Angle is **zero**, when it has
    an empty inside, **straight** angle is an angle which arms are part of a single
-   line, a **complete** angle is an angle which arms are equal. Angle with arms
-   $h_{OA}$ and $h_{OB}$ is denoted by $\sphericalangle AOB$ (the context should
+   line, a **complete** angle is an angle which arms are equal. Angle with
+   arms $h_{OA}$ and $h_{OB}$ is denoted by $\sphericalangle AOB$ (the context should
    be enough to decide on which of the two angles it's about). To denote angles
    small greek letters are also going to be used, for example $\alpha$, $\beta$ etc.
 9. Let's consider a circle with center in a vertex of an angle and a non-zero radius.
    Part of this circle contained inside of the considered angle is an **arch** of
    that circle. Arch of angle $\sphericalangle AOB$ is denoted with $\overset{\frown}{AB}$.
 10. Angle of exactly $90\degree$ is called a **right angle**. Angle with measure
-    lower than $90\degree$ is an **acute** angle. Angle with measure in range
-    $(90\degree;180\degree)$ is an **obtuse** angle.
+    lower than $90\degree$ is an **acute** angle. Angle with measure in
+    range $(90\degree;180\degree)$ is an **obtuse** angle.
 11. If any of four angles created by non-parallel lines $k$, $l$ is a right angle,
-    then those lines are **perpendicular** to each other. This is denoted with
-    $k \perp l$.
+    then those lines are **perpendicular** to each other. This is denoted
+    with $k \perp l$.
 12. **Projection** of point $P$ on line $k$ is a common point of line $k$ with a
     perpendicular line to $k$ that passes through $P$. This is denoted with $P_{k}$.
 13. **Distance** of point $P$ to line $k$ is a number $|PP_{k}|$. Denoted with $d(P;k)$
@@ -45,8 +45,8 @@
     of the same line, are **supplementary** angles.
 16. A complete angle with both arms on a single line $k$ is a half-plane with
     edge $k$.
-17. Ray $h_{OC}$ inside an angle $\sphericalangle AOB$ such that
-    $|\sphericalangle AOC| = |\sphericalangle COB|$ is a **bisector** of
+17. Ray $h_{OC}$ inside an angle $\sphericalangle AOB$ such
+    that $|\sphericalangle AOC| = |\sphericalangle COB|$ is a **bisector** of
     angle $\sphericalangle AOB$.
 18. Let $A$, $B$, $C$, be three points not lying on the same line. **Triangle**
     $ABC$ is a common area of three half-planes, from which one has an edge $AB$

@@ -58,7 +58,7 @@ function generateHTML(files) {
                 result += `
                     <span class="link" hx-get="./${file.path}/index.html" hx-swap="innerHTML" hx-target="#main" hx-trigger="click">
                         ${capitalize(file.name)}
-                    <span>`
+                    </span>`
             }
             else {
                 result += `${capitalize(file.name)}`;

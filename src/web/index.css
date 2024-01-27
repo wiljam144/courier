@@ -75,6 +75,10 @@ ul {
     padding-left: 15px;
 }
 
+.katex {
+    font-size: 19px !important;
+}
+
 .footnote {
     color: black;
     text-decoration: none;

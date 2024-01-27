@@ -15,8 +15,8 @@ import { execSync } from "child_process";
 
 marked.use();
 marked.use(markedAlert());
-marked.use(baseUrl("https://wiljam144.github.io/courier/"));
-//marked.use(baseUrl("/content/"));
+//marked.use(baseUrl("https://wiljam144.github.io/courier/content"));
+marked.use(baseUrl("/content/"));
 marked.use(markedFootnote());
 marked.use(markedHighlight({
     langPrefix: "hljs language-",
