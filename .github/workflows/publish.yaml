@@ -1,0 +1,31 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out
+        uses: actions/checkout@v1
+
+      - name: Update apt repos
+        run: sudo apt update
+
+      - name: install nodejs
+        run: sudo apt install $(cat dependencies.txt)
+
+      - name: install packages
+        run: npm install
+
+      - name: build the site
+        run: npm run build
+
+      - name: Publish files to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: dist

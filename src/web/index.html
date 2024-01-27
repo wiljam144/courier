@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Non)Intellectual Courier</title>
+
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+    <link rel="stylesheet" href="./fonts/cmun/Sans/cmun-sans.css">
+    <link rel="stylesheet" href="./fonts/cmun/Serif/cmun-serif.css">
+    <link rel="stylesheet" href="./fonts/cmun/TypewriterLight/cmun-typewriter-light.css">
+    <link rel="stylesheet" href="./index.css">
+
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+    <link rel="stylesheet" href="./lib/hljs/stackoverflow-light.min.css">
+
+    <link rel="stylesheet" href="./lib/katex/katex.min.css">
+    <script src="./lib/katex/katex.min.js"></script>
+</head>
+<body>
+    <div id="topbar" hx-get="./content/index.html" hx-trigger="click" hx-target="#main" hx-swap="innerHTML">(Non)Intellectual Courier</div>
+    <div class="link" hx-get="./navigation.html" hx-trigger="click" hx-target="#main" hx-swap="innerHTML" id="navigation-mobile">Navigation</div>
+    <div id="grid">
+        <div id="linkage" hx-get="./content/linkage.html" hx-trigger="load" hx-target="#linkage-content" hx-swap="innerHTML"><div id="linkage-content"></div></div>
+        <div id="main" hx-get="./content/index.html" hx-trigger="load" hx-target="this" hx-swap="innerHTML"></div>
+        <div id="navigation" hx-get="./navigation.html" hx-trigger="load" hx-target="this" hx-swap="innerHTML"></div>
+    </div>
+</body>
+</html>

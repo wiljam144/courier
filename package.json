@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "cd dist && python3 -m http.server",
+    "build": "node ./src/build/main.js",
+    "dev": "npm run build && npm run start"
+  },
+  "dependencies": {
+    "highlight.js": "^11.9.0",
+    "marked": "^11.1.1",
+    "marked-alert": "^2.0.1",
+    "marked-base-url": "^1.1.2",
+    "marked-footnote": "^1.2.2",
+    "marked-highlight": "^2.1.0",
+    "marked-katex-extension": "^5.0.0"
+  },
+  "type": "module"
+}
