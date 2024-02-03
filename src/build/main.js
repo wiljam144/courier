@@ -13,7 +13,7 @@ import { generateNav } from "./navigation.js";
 
 marked.use();
 marked.use(markedAlert());
-marked.use(baseUrl("https://wiljam144.github.io/courier/content/"));
+//marked.use(baseUrl("https://wiljam144.github.io/courier/content/"));
 //marked.use(baseUrl("/"));
 marked.use(markedFootnote());
 marked.use(markedHighlight({
