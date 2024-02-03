@@ -40,10 +40,16 @@ function traverseDir(dir) {
 }
 
 function generateHTML(files) {
-    let result = `<ul>`;
+    let result = `<ul class="nav-element">`;
 
     for (let file of files) {
         if (file.name == "index.md") {
+            continue;
+        }
+        if (file.name.includes("problem")) {
+            continue;
+        }
+        if (file.name.includes("images")) {
             continue;
         }
         if (file.name == "linkage.md") {

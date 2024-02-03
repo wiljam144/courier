@@ -1,22 +1,20 @@
 import fs from "fs";
 import path from "path";
 
-import hljs from "highlight.js";
-
 import { marked } from "marked";
 import markedAlert from "marked-alert";
 import { baseUrl } from "marked-base-url";
 import markedFootnote from "marked-footnote";
+import hljs from "highlight.js";
 import { markedHighlight } from "marked-highlight";
 import markedKatex from "marked-katex-extension";
 
 import { generateNav } from "./navigation.js";
-import { execSync } from "child_process";
 
 marked.use();
 marked.use(markedAlert());
-marked.use(baseUrl("https://wiljam144.github.io/courier/content"));
-//marked.use(baseUrl("/content/"));
+marked.use(baseUrl("https://wiljam144.github.io/courier/content/"));
+//marked.use(baseUrl("/"));
 marked.use(markedFootnote());
 marked.use(markedHighlight({
     langPrefix: "hljs language-",
@@ -36,7 +34,8 @@ function traverseDir(dir, files = []) {
 
         if (fs.statSync(contentPath).isDirectory()) {
             traverseDir(contentPath, files);
-        } else {
+        }
+        else {
             files.push({path: contentPath, name: content});
         }
     }
@@ -47,42 +46,14 @@ function traverseDir(dir, files = []) {
 function compileMarkdownFile(path) {
     let content = fs.readFileSync(path, "utf-8");
 
-    // remove any newlines inside %%...%%
-    content = content.replace(/%%([\s\S]*?)%%/g, function(_, group) {
-        return "%%" + group.replace(/\n/g, " ") + "%%";
-    });
-
     let text = marked.parse(content);
 
-    const tikzRegex = /%%(.*?)%%/g;
-
-    text = text.replace(tikzRegex, (_, group) => {
-        const src = `
-        \\documentclass[border=1pt]{standalone} 
-        \\usepackage{tikz}
-        \\begin{document}
-        \\begin{tikzpicture}
-        ${group}
-        \\end{tikzpicture}
-        \\end{document}`;
-
-        fs.writeFileSync("tmp.tex", src);
-        execSync(`pdflatex tmp.tex`);
-        execSync(`pdf2svg tmp.pdf tmp.svg`);
-        fs.rmSync("tmp.tex");
-        fs.rmSync("tmp.aux");
-        fs.rmSync("tmp.log");
-        fs.rmSync("tmp.pdf");
-
-        const svg = fs.readFileSync("tmp.svg", "utf-8");
-
-        fs.rmSync("tmp.svg");
-
-        return svg
-    });
+    const svgRegex = /%svg%(.*?)%svg%/g;
+    text = text.replace(svgRegex, (_, group) => {
+        return group;
+    })
 
     const linkRegex = /<a .*?href="(.*?)"[^>]*>(.*?)<\/a>/g
-
     text = text.replace(linkRegex, (_, href, text) => {
         if (href.startsWith("#footnote")) {
             return `<a class="footnote" href="${href}">${text}</a>`
@@ -104,8 +75,21 @@ function compileMarkdownFile(path) {
 }
 
 function compileMarkdownFiles(dir) {
+    const ignorelist = [".DS_STORE"];
+
     let files = traverseDir(dir);
+    outerloop:
     for (const file of files) {
+        if (file.name.includes(".png") || file.name.includes(".svg")) {
+            fs.cpSync(file.path, "./dist/" + file.path, {recursive: true});
+            continue;
+        }
+        for (let i = 0; i < ignorelist.length; i++) {
+            if (file.path.includes(ignorelist[i])) {
+                continue outerloop;
+            }
+        }
+
         let content = compileMarkdownFile(file.path);
 
         fs.mkdirSync(path.join("./dist/", file.path.slice(0, -file.name.length)), { recursive: true });

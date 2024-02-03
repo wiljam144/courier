@@ -63,15 +63,3 @@
 21. Subsets of a geometric plane are called geometric **shapes**.
 22. The area of a geometric shape $\mathcal{F}$ consisting of points $A$, $B$, $C$,
     with $[ABC]$ or with $P_{ABC}$.
-
-**Definition 1.1** Geometric shape $\mathcal{F}$ is **convex**
-when $\forall A,B \in \mathcal{F} : \overline{AB} \in \mathcal{F}$. Shown in
-figure 1.1.
-%%
-\draw (0,0) ellipse (1.5cm and 1cm);
-\draw[black,fill=black] (-0.5,0.3) circle(0.05cm);
-\draw (-0.5,0.3) node[anchor=north]{$A$}
-  -- (0.5,0.5) node[anchor=north]{$B$};
-\draw[black,fill=black] (0.5,0.5) circle(0.05cm);
-\node at (0,-1.5) {Figure 1.1};
-%%
