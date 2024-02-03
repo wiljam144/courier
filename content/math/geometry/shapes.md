@@ -4,7 +4,7 @@
 when $\forall A,B \in \mathcal{F} : \overline{AB} \in \mathcal{F}$. Shown in
 figure 1.1.
 
-![Figure 1.1](./images/figure-1.1.svg)
+![Figure 1.1](/courier/content/math/geometry/images/figure-1.1.svg)
 
 **Definition 1.2** Point A is an **inside point** of shape $\mathcal{F}$, if there
 exists a positive number $r$, such that $\mathcal{D}(A;r) \subseteq \mathcal{F}$.
