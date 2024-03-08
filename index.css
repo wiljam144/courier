@@ -60,6 +60,28 @@ p img:only-child {
     float: none;
 }
 
+p svg {
+    float: right;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: fill;
+}
+
+p:has(> :last-child:nth-child(1)):has(> :last-child:nth-child(1):is(svg)) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p svg:only-child {
+    float: none;
+}
+
 a {
     color: black;
     text-decoration: underline;
@@ -75,7 +97,7 @@ ul {
 }
 
 .katex {
-    font-size: 19px !important;
+    font-size: 1.05em !important;
 }
 
 .footnote {
