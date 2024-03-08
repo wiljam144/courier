@@ -26,7 +26,7 @@ function traverseDir(dir) {
             file.files = traverse[0];
             file.index = traverse[1];
             files.push(file);
-        } 
+        }
         else {
             if (content == "index.md") {
                 index = true;
@@ -46,7 +46,7 @@ function generateHTML(files) {
         if (file.name == "index.md") {
             continue;
         }
-        if (file.name.includes("problem")) {
+        if (file.name.includes("problem") && file.type != "directory") {
             continue;
         }
         if (file.name.includes("images")) {
@@ -78,7 +78,7 @@ function generateHTML(files) {
         }
         else {
             let name = "";
-            for (let word of file.name.slice(0, -3).split("-")) {
+            for (let word of file.name.slice(0, -3).split(" ")) {
                 name += capitalize(word) + " ";
             }
 
