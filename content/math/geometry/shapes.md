@@ -4,7 +4,14 @@
 when $\forall A,B \in \mathcal{F} : \overline{AB} \in \mathcal{F}$. Shown in
 figure 1.1.
 
-![Figure 1.1](/courier/content/math/geometry/images/figure-1.1.svg)
+%%
+#canvas(200, 200, 20)
+@circle(0, 0, 4)
+@point(-1, -1)
+@point(1, 1)
+@segment(-1, -1, 1, 1)
+@label("Figure 1.1")
+%%
 
 **Definition 1.2** Point A is an **inside point** of shape $\mathcal{F}$, if there
 exists a positive number $r$, such that $\mathcal{D}(A;r) \subseteq \mathcal{F}$.
@@ -14,3 +21,19 @@ number $r$, such that $\mathcal{D}(B;r) \cap \mathcal{F} = \varnothing$. C is an
 **edge point** of shape $\mathcal{F}$, when for every positive number $r$, such
 that both inside points and outside points are inside of a circle $\mathcal{D}(C;r)$.
 A set of all edge points of $\mathcal{F}$ is the edge of $\mathcal{F}$.
+
+I will also introduce some notation for specific parts of triangles.
+All of following notation is for $\triangle ABC$.
+
+1. Lengths of sides of triangles: $a = |BC|$, $b = |CA|$, $c = |AB|$.
+2. Angles of triangle: $\alpha = \sphericalangle A$, $\beta = \sphericalangle B$, $\gamma = \sphericalangle C$.
+3. Measures of angles of a
+   triangle: $\alpha = |\sphericalangle A|$, $\beta = |\sphericalangle B|$, $\gamma = |\sphericalangle C|$.
+4. Bisector of any of the three angles of a triangle is called a **bisector**
+   of that angle. The length of a bisector starting in vertex $A$ is denoted with $b_A$
+   (and when it doesn't lead to ambiguities the bisector itself).
+5. Segment connecting vertex $A$ with the middle $A_1$ of opposite side $\overline{AB}$
+   is called a **median** of that triangle led from vertex $A$. It's length is denoted
+   with $m_A$, (and when it doesn't lead to ambiguities the median itself is denoted in this way).
+6. Consider projection $C'$ of point $C$ on line $AB$. The segment $\overline{CC'}$
+   is the **height** of triangle led from vertex $C$ and is denoted with $h_{C}$.

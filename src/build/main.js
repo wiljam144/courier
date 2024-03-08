@@ -11,9 +11,11 @@ import markedKatex from "marked-katex-extension";
 
 import { generateNav } from "./navigation.js";
 
+import { compile } from "figurescript";
+
 marked.use();
 marked.use(markedAlert());
-//marked.use(baseUrl("https://wiljam144.github.io/courier/content/"));
+//marked.use(baseUrl("https://wiljam144.github.io/courier/"));
 //marked.use(baseUrl("/"));
 marked.use(markedFootnote());
 marked.use(markedHighlight({
@@ -25,6 +27,7 @@ marked.use(markedHighlight({
 }));
 marked.use(markedKatex({
     throwOnError: true, 
+    minRuleThickness: 0.06,
 }));
 
 function traverseDir(dir, files = []) {
@@ -45,6 +48,10 @@ function traverseDir(dir, files = []) {
 
 function compileMarkdownFile(path) {
     let content = fs.readFileSync(path, "utf-8");
+    const figurescriptRegex = /%%(.*?)%%/gs;
+    content = content.replace(figurescriptRegex, (_, group) => {
+        return compile(group); 
+    });
 
     let text = marked.parse(content);
 
@@ -52,6 +59,12 @@ function compileMarkdownFile(path) {
     text = text.replace(svgRegex, (_, group) => {
         return group;
     })
+
+    /* const figurescriptRegex = /%%(.*?)%%/gs;
+    text = text.replace(figurescriptRegex, (_, group) => {
+        console.log(group);
+        return compile(group); 
+    }) */
 
     const linkRegex = /<a .*?href="(.*?)"[^>]*>(.*?)<\/a>/g
     text = text.replace(linkRegex, (_, href, text) => {
