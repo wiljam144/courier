@@ -78,7 +78,7 @@ function generateHTML(files) {
         }
         else {
             let name = "";
-            for (let word of file.name.slice(0, -3).split(" ")) {
+            for (let word of file.name.slice(0, -3).split("-")) {
                 name += capitalize(word) + " ";
             }
 
