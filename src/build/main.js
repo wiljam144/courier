@@ -3,7 +3,6 @@ import path from "path";
 
 import { marked } from "marked";
 import markedAlert from "marked-alert";
-import { baseUrl } from "marked-base-url";
 import markedFootnote from "marked-footnote";
 import hljs from "highlight.js";
 import { markedHighlight } from "marked-highlight";
@@ -15,8 +14,6 @@ import { compile } from "figurescript";
 
 marked.use();
 marked.use(markedAlert());
-//marked.use(baseUrl("https://wiljam144.github.io/courier/"));
-//marked.use(baseUrl("/"));
 marked.use(markedFootnote());
 marked.use(markedHighlight({
     langPrefix: "hljs language-",
@@ -54,17 +51,6 @@ function compileMarkdownFile(path) {
     });
 
     let text = marked.parse(content);
-
-    const svgRegex = /%svg%(.*?)%svg%/g;
-    text = text.replace(svgRegex, (_, group) => {
-        return group;
-    })
-
-    /* const figurescriptRegex = /%%(.*?)%%/gs;
-    text = text.replace(figurescriptRegex, (_, group) => {
-        console.log(group);
-        return compile(group);
-    }) */
 
     const linkRegex = /<a .*?href="(.*?)"[^>]*>(.*?)<\/a>/g
     text = text.replace(linkRegex, (_, href, text) => {
