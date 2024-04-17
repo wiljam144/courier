@@ -1,8 +1,0 @@
-@font-face {
-    font-family: "Computer Modern Serif Slanted";
-    src: url("./cmunbl.ttf");
-}
-
-#svg text {
-    font-family: "Computer Modern Serif Slanted";
-}

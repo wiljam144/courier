@@ -26,7 +26,7 @@ marked.use(markedHighlight({
     },
 }));
 marked.use(markedKatex({
-    throwOnError: true, 
+    throwOnError: true,
     minRuleThickness: 0.06,
 }));
 
@@ -50,7 +50,7 @@ function compileMarkdownFile(path) {
     let content = fs.readFileSync(path, "utf-8");
     const figurescriptRegex = /%%(.*?)%%/gs;
     content = content.replace(figurescriptRegex, (_, group) => {
-        return compile(group); 
+        return compile(group);
     });
 
     let text = marked.parse(content);
@@ -63,7 +63,7 @@ function compileMarkdownFile(path) {
     /* const figurescriptRegex = /%%(.*?)%%/gs;
     text = text.replace(figurescriptRegex, (_, group) => {
         console.log(group);
-        return compile(group); 
+        return compile(group);
     }) */
 
     const linkRegex = /<a .*?href="(.*?)"[^>]*>(.*?)<\/a>/g

@@ -65,11 +65,8 @@ p svg {
     margin-bottom: 10px;
     margin-top: 10px;
     margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    max-width: 200px;
-    max-height: 200px;
     object-fit: fill;
+    font-family: "Computer Modern Classical Serif Italic";
 }
 
 p:has(> :last-child:nth-child(1)):has(> :last-child:nth-child(1):is(svg)) {
@@ -106,6 +103,14 @@ ol > li::marker {
 
 .katex {
     font-size: 1.05em !important;
+}
+
+.katex-display .katex .katex-html {
+    text-wrap: wrap !important;
+}
+
+p .katex .katex-html {
+    text-wrap: nowrap !important;
 }
 
 .footnote {
@@ -149,6 +154,8 @@ ol > li::marker {
 
     display: grid;
     grid-template-columns: 20% 30% 30% 20%;
+
+    margin-bottom: 150px;
 }
 
 #linkage {
@@ -170,7 +177,7 @@ ol > li::marker {
     text-align: justify;
     hyphens: auto;
 
-    font-size: 18px;
+    font-size: 20px; /*18px;*/
 }
 
 #navigation {
