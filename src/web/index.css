@@ -21,6 +21,10 @@ body {
     font-family: "Computer Modern Sans", sans-serif;
 }
 
+h1, h2, h3, h4 {
+    text-align: left !important;
+}
+
 pre {
     display: flex;
     justify-content: center;
@@ -89,8 +93,28 @@ a:visited {
 }
 
 ul {
-    list-style-type: "✧  ";
     padding-left: 15px;
+    list-style-type: "✧  ";
+}
+
+li:has(ul:empty) {
+    list-style-type: "✧  " !important;
+}
+
+ul li.inactive {
+    list-style-type: "✧  ";
+}
+
+ul li.active {
+    list-style-type: "✦  ";
+}
+
+ul li.active > .nav-element {
+    display: block;
+}
+
+ul li.inactive > .nav-element {
+    display: none;
 }
 
 ol ol {
@@ -101,8 +125,12 @@ ol > li::marker {
     font-weight: bold;
 }
 
+.figurescript-label {
+    font-family: "Computer Modern Sans", sans-serif;
+}
+
 .katex {
-    font-size: 1.05em !important;
+    font-size: 1.00em !important;
 }
 
 .katex-display .katex .katex-html {
@@ -183,14 +211,6 @@ p .katex .katex-html {
 #navigation {
     grid-column: 4;
     margin-left: 20px;
-}
-
-#navigation ul li .nav-element li {
-    display: none;
-}
-
-#navigation ul li:hover .nav-element li {
-    display: list-item;
 }
 
 #navigation-mobile {

@@ -25,6 +25,9 @@ marked.use(markedHighlight({
 marked.use(markedKatex({
     throwOnError: true,
     minRuleThickness: 0.06,
+    macros: {
+        "\\angle": "\\sphericalangle #1"
+    }
 }));
 
 function traverseDir(dir, files = []) {

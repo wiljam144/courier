@@ -56,10 +56,11 @@ function generateHTML(files) {
             result += `<li class="linkage">`;
         }
         else {
-            result += `<li>`;
+            result += `<li`;
         }
 
         if (file.type == "directory") {
+            result += ` class="inactive">`;
             let name = "";
             for (let word of file.name.split("-")) {
                 name += capitalize(word) + " ";
@@ -77,6 +78,7 @@ function generateHTML(files) {
             result += generateHTML(file.files);
         }
         else {
+            result += `>`;
             let name = "";
             for (let word of file.name.slice(0, -3).split("-")) {
                 name += capitalize(word) + " ";
